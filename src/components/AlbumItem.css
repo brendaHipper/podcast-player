@@ -1,0 +1,27 @@
+/* AlbumItem.css */
+
+.album-item {
+  width: 160px; /* Ajusta el tamaño según sea necesario */
+  margin: 10px;
+}
+
+.album-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.album-details {
+  margin-top: 10px;
+}
+
+.album-title {
+  font-weight: bold;
+  color: white;
+}
+
+.album-artist,
+.album-song-count {
+  color: gray;
+  font-size: 0.9em;
+}

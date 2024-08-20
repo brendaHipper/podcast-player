@@ -1,0 +1,32 @@
+/* Header.css */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #121212;
+  padding: 10px 20px;
+}
+
+.iconYoutube {
+  height: 60px; /* Ajusta el tamaño según sea necesario */
+}
+
+.search-bar {
+  flex-grow: 1; /* Hace que la barra de búsqueda tome el espacio disponible */
+  margin: 0 20px; /* Espaciado a los lados */
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-profile img {
+  border-radius: 50%;
+  height: 50px; /* Ajusta según el tamaño de la imagen de perfil */
+}
+
+.user-profile-icon {
+  margin-left: 15px; /* Espaciado entre los íconos y la imagen de usuario */
+}

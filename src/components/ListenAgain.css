@@ -1,0 +1,28 @@
+/* ListenAgain.css */
+
+.listen-again {
+    margin: 20px 0;
+  }
+  
+  .section-title {
+    font-size: 1.5em;
+    color: white;
+    margin-bottom: 20px;
+    padding-left: 0%;
+  }
+  
+  .albums-container {
+    display: flex;
+    overflow-x: auto; /* Para hacer un scroll horizontal si hay muchos álbumes */
+    padding-bottom: 10px;
+  }
+  
+  .albums-container::-webkit-scrollbar {
+    height: 5px;
+  }
+  
+  .albums-container::-webkit-scrollbar-thumb {
+    background-color: #444; 
+    border-radius: 10px;
+  }
+  
