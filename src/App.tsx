@@ -1,16 +1,19 @@
-import './App.css'
+// import './App.css'
 import Header from './components/Header.js';
-import ListenAgain from './components/ListenAgain.js';
-import QuickPicks from './components/QuickPicks.js';
-
+import Sidebar from './components/Sidebar.js';
+import Chip from './components/Chip.js';
+// import ListenAgain from './components/ListenAgain.js';
+// import QuickPicks from './components/QuickPicks.js';
+import MainContent from './components/MainContent.js';
 
 
 export default function AlbumList() {
   return (
     <div className='podcast'>
       <Header />
-      <ListenAgain />
-      <QuickPicks />
+      <Sidebar/>
+      <Chip/>
+      <MainContent />
     </div>
   );
 }
