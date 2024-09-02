@@ -1,0 +1,15 @@
+/* Contenedor principal de todas las secciones de musica: Listen Again, Quick Picks, Recommended etc */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 64px;
+  background-color: #0C090B;
+  position: absolute;
+  width: 1112px;
+  height: 1505px;
+  left: 320px;
+  top: 216px;
+}
+  

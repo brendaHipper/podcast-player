@@ -1,7 +1,11 @@
 
+import { Search } from 'lucide-react';
+import './SearchBar.css';
+
 const SearchBar = () => (
   <div className="search-bar">
-    <input type="text" placeholder="Search..." />
+    <Search className="search-icon" size={23} />
+    <input type="text" placeholder=" Search..." />
   </div>
 );
 

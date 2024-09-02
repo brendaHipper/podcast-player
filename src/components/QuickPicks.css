@@ -1,28 +1,8 @@
-.quick-picks {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-  }
-  
-  .album-item {
-    background-color: #202020;
-    padding: 10px;
-    border-radius: 8px;
-    text-align: center;
-  }
-  
-  .album-image {
-    width: 100%;
-    border-radius: 5px;
-  }
-  
-  .album-details {
-    margin-top: 8px;
-  }
-  
-  .album-title, .album-artist, .album-song-count {
-    font-size: 14px;
-    margin: 2px 0;
-    color: #fff;
-  }
-  
+/* Para el contenedor quick picks aplico Grid*/
+.quick-picks-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Ajusta según el diseño */
+  gap: 8px;
+}
+
+

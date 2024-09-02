@@ -1,32 +1,36 @@
-/* Header.css */
-
-header {
+/* Contenedor principal para Top Bar (header)*/
+.top-bar-container {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  background-color: #121212;
+  /* background-color: #121212; */
+  background-color: #0C090B;
   padding: 10px 20px;
+  position: absolute;
+  width: 1420px;
+  height: 96px;
+  left: 0px;
+  top: 0px;
 }
 
 .iconYoutube {
-  height: 60px; /* Ajusta el tamaño según sea necesario */
+  display: flex;
+  position: relative;
+  width: 140px;
+  left: 30px;
 }
 
 .search-bar {
-  flex-grow: 1; /* Hace que la barra de búsqueda tome el espacio disponible */
-  margin: 0 20px; /* Espaciado a los lados */
-}
-
-.user-profile {
   display: flex;
-  align-items: center;
-}
-
-.user-profile img {
-  border-radius: 50%;
-  height: 50px; /* Ajusta según el tamaño de la imagen de perfil */
+  padding-left: 80px;
+  flex-grow: 1; /* Hace que la barra de búsqueda tome el espacio disponible */
+  margin: 0 50px; /* Espaciado a los lados */
 }
 
 .user-profile-icon {
-  margin-left: 15px; /* Espaciado entre los íconos y la imagen de usuario */
+  display: flex;
+} 
+
+.icon-Cast {
+  padding-right: 20px;
 }

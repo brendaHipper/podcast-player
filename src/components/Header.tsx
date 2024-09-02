@@ -1,20 +1,19 @@
-import IconYouTubeMusic from '../assets/youtube-music-hd-logo.png'; 
+import IconYouTubeMusic from '../assets/youtube-music-1.svg'; 
 import SearchBar from './SearchBar';
-import UserProfile from './UserProfile';
 import ImgUserProfile from '../assets/yop.png';
 import './Header.css'
+import { AlignJustify, Cast } from 'lucide-react';
 
 const Header = () => (
     <header>
+    <div className="top-bar-container">
+      <AlignJustify className='menu' size={35}/>
       <img className='iconYoutube' src={IconYouTubeMusic} alt="music" />
-    <div className="search-bar-container">
       <SearchBar />
-    </div>
-    <div className="user-profile">
-      <div className="user-profile-icon">
-        <UserProfile />
-      </div>
-      <img src={ImgUserProfile} alt="user" />
+      <Cast className='icon-Cast'size={35}/>
+        <div className="user-profile-icon">
+            <img src={ImgUserProfile} alt="user" />
+        </div>
     </div>
     </header>
   );
