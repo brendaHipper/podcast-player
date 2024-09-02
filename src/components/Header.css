@@ -1,0 +1,36 @@
+/* Contenedor principal para Top Bar (header)*/
+.top-bar-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* background-color: #121212; */
+  background-color: #0C090B;
+  padding: 10px 20px;
+  position: absolute;
+  width: 1420px;
+  height: 96px;
+  left: 0px;
+  top: 0px;
+}
+
+.iconYoutube {
+  display: flex;
+  position: relative;
+  width: 140px;
+  left: 30px;
+}
+
+.search-bar {
+  display: flex;
+  padding-left: 80px;
+  flex-grow: 1; /* Hace que la barra de búsqueda tome el espacio disponible */
+  margin: 0 50px; /* Espaciado a los lados */
+}
+
+.user-profile-icon {
+  display: flex;
+} 
+
+.icon-Cast {
+  padding-right: 20px;
+}
