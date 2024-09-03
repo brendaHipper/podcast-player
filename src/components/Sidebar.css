@@ -2,14 +2,57 @@
 .sidebar-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     padding: 0px;
     gap: 15px;
     position: absolute;
     width: 250px;
     height: 1688px;
     left: 20px;
-    top: 130px;
+    top: 100px;
     /*linea vertical separadora*/
-    border-right: 0.5px solid #F5F5F5;
+    border-right: 0.5px solid #474747;
 }
+
+.menu-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 16px;
+    gap: 16px;
+    width: 200px;
+    height: 180px;
+    border-bottom: 0.1px solid #474747;
+}
+
+.button-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    gap: 10px;
+    width: 200px;
+    height: 48px;
+    border-radius: 51px;
+}
+
+.playlists-section {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    padding: 12px 2px;
+    padding-top: 10px;
+    gap: 1px;
+    overflow-y: no;
+}
+
+.autoplaylist h3 {
+    position: absolute;
+}
+
+.autoplaylist p {
+    padding-top: 30px;
+}
+
