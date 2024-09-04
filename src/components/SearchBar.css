@@ -12,12 +12,12 @@
   }
   
   input {
-    background: #262728;
-    border-color: #474747;
+    background: rgba(40, 40, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     font-size: 16px;
     font-weight: 400;
-    height: 40px;
+    height: 45px;
     padding-left: 40px; /* Espacio adicional para el ícono */
     width: 45%;
     color: #fff; /* Color del texto */

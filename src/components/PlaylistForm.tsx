@@ -1,44 +1,52 @@
-import React, { useState } from 'react';
+import './PlaylistForm.css'
+import { ChangeEvent, FormEvent, useState } from 'react';
 import Input from './Input';
-import './PlaylistForm.css';
 
-const PlaylistForm: React.FC = () => {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
-
-    const handleAddPlaylist = () => {
-        console.log("Playlist agregada:", { title, description, imageUrl });
-    };
-
-    return (
-        <form className="playlist-form-container" onSubmit={(e) => e.preventDefault()}>
-            <h2>Crea tu playlist</h2>
-            <Input 
-                label="Título" 
-                value={title} 
-                onChange={(e) => setTitle(e.target.value)} 
-            />
-            <Input 
-                label="Descripción" 
-                value={description} 
-                onChange={(e) => setDescription(e.target.value)} 
-            />
-            <Input 
-                label="Imagen (URL)" 
-                type="url" 
-                value={imageUrl} 
-                onChange={(e) => setImageUrl(e.target.value)} 
-            />
-            <button 
-                type="submit" 
-                onClick={handleAddPlaylist}
-                disabled={!title || !description || !imageUrl} 
-            >
-                Agregar playlist
-            </button>
-        </form>
-    );
+type PlaylistFormProps = {
+  addPlaylist: (playlist: 
+    { 
+      title: string; 
+      description: string; 
+      imageUrl: string }) => void;
 };
+
+function PlaylistForm({ addPlaylist }: PlaylistFormProps) {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [imageUrl, setImageUrl] = useState('');
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    addPlaylist({ title, description, imageUrl });
+  };
+
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    if (name === 'title') setTitle(value);
+    if (name === 'description') setDescription(value);
+    if (name === 'imageUrl') setImageUrl(value);
+  };
+
+  return (
+    <div className='main-container'>
+      <div className="playlist-form-container">
+        <form onSubmit={handleSubmit}>
+        <h2>Creá tu playlist</h2>
+          <Input label="Titulo" name="title" value={title} onChange={handleInputChange} />
+          <Input label="Descripción" name="description" value={description} onChange={handleInputChange} />
+          <Input label="Imagen (url)" name="imageUrl" value={imageUrl} onChange={handleInputChange} />
+          <button type="submit" disabled={!title || !description || !imageUrl}>
+            Agregar Playlist
+          </button>
+        </form>
+      <div className="playlist-preview">
+        {imageUrl && <img src={imageUrl} alt={title} width={180}/>}
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
+    </div>
+    </div>
+  );
+}
 
 export default PlaylistForm;

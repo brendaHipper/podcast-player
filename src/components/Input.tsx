@@ -1,25 +1,22 @@
-import React, { ChangeEvent } from 'react';
+import './Input.css'
+import { ChangeEvent } from 'react';
 
 type InputProps = {
-    label: string;
-    type?: string;
-    value: string;
-    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  label: string;
+  name: string;
+  value: string;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 };
 
-const Input = ({ label, type = 'text', value, onChange }: InputProps) => {
-    return (
-        <div style={{ marginBottom: '1rem' }}>
-            <label style={{ display: 'block', marginBottom: '0.5rem' }}>{label}</label>
-            <input 
-                type={type} 
-                value={value} 
-                onChange={onChange} 
-                style={{ padding: '0.5rem', width: '100%' }}
-            />
-        </div>
-    );
+const Input = ({ label, name, value, onChange }: InputProps) => {
+  return (
+    <div>
+      <label>{label}</label>
+      <input name={name} value={value} onChange={onChange} />
+    </div>
+  );
 };
 
 export default Input;
+
 

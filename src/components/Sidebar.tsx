@@ -1,8 +1,12 @@
-import './Sidebar.css';
 import Button from './Button';
-// import PlaylistForm from './PlaylistForm';
+import './Sidebar.css';
 
-function Sidebar() {
+type SidebarProps = {
+  playlists: Array<{ title: string; description: string; imageUrl: string }>;
+  onNewPlaylistClick: () => void;
+};
+
+function Sidebar({ playlists, onNewPlaylistClick }: SidebarProps) {
   return (
     <div className="sidebar-container">
       <div className="menu-section">
@@ -11,25 +15,18 @@ function Sidebar() {
         <Button icon="file-music" label="Home" />
       </div>
       <div className="button-section">
-        <Button icon="plus" label="New playlist" />
+        <Button icon="plus" label="New playlist" handleClick={onNewPlaylistClick} />
       </div>
       <div className="playlists-section">
-        <div className='autoplaylist'>
-          <h3>Your Likes</h3>
-          <p>Autoplaylist</p>
-        </div>
-        <div className='autoplaylist'>
-          <h3>Your Likes</h3>
-          <p>Autoplaylist</p>
-        </div>
-        <div className='autoplaylist'>
-          <h3>Your Likes</h3>
-          <p>Autoplaylist</p>
-        </div>
-        <div className='autoplaylist'>
-          <h3>Your Likes</h3>
-          <p>Autoplaylist</p>
-        </div>
+        {playlists.map((playlist, index) => (
+          <div className='autoplaylist' key={index}>
+            <img src={playlist.imageUrl} alt={playlist.title} width={48}/>
+            <div className='autoplaylist-container'>
+              <h3 className='autoplaylist-title'>{playlist.title}</h3>
+              <p className='autoplaylist-description'>{playlist.description}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
