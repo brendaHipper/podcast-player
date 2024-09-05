@@ -1,5 +1,7 @@
 import Button from './Button';
 import './Sidebar.css';
+import SongItem from './SongItem';
+// import { ChevronDown } from 'lucide-react';
 
 type SidebarProps = {
   playlists: Array<{ title: string; description: string; imageUrl: string }>;
@@ -18,13 +20,13 @@ function Sidebar({ playlists, onNewPlaylistClick }: SidebarProps) {
         <Button icon="plus" label="New playlist" handleClick={onNewPlaylistClick} />
       </div>
       <div className="playlists-section">
-        {playlists.map((playlist, index) => (
-          <div className='autoplaylist' key={index}>
-            <img src={playlist.imageUrl} alt={playlist.title} width={48}/>
-            <div className='autoplaylist-container'>
-              <h3 className='autoplaylist-title'>{playlist.title}</h3>
-              <p className='autoplaylist-description'>{playlist.description}</p>
-            </div>
+        {playlists.map((playlist, id) => (
+          <div className='autoplaylist' key={id}>
+            <SongItem
+              imgSrc={playlist.imageUrl}
+              title={playlist.title}
+              artist={playlist.description}
+            />
           </div>
         ))}
       </div>

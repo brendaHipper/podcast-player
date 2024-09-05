@@ -9,7 +9,7 @@ type AlbumItemProps = {
   borderRadius?: number;
 };
 
-export default function AlbumItem({ imgSrc, title, artist, width=180, height=180, borderRadius=0}: AlbumItemProps) {
+export default function AlbumItem({ imgSrc, title, artist, width=180, height=180, borderRadius=4}: AlbumItemProps) {
   return (
     <div
       className="album-song"

@@ -1,4 +1,5 @@
 import './PlaylistForm.css'
+import AlbumItem from './AlbumItem';
 import { ChangeEvent, FormEvent, useState } from 'react';
 import Input from './Input';
 
@@ -40,9 +41,12 @@ function PlaylistForm({ addPlaylist }: PlaylistFormProps) {
           </button>
         </form>
       <div className="playlist-preview">
-        {imageUrl && <img src={imageUrl} alt={title} width={180}/>}
-        <h3>{title}</h3>
-        <p>{description}</p>
+        <AlbumItem 
+              imgSrc={imageUrl}
+              title={title}
+              artist={description}
+              width={180}
+          />
       </div>
     </div>
     </div>

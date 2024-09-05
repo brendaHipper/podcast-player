@@ -3,7 +3,7 @@ import './Button.css';
 import { House, Compass, Plus, FileMusic, UserRound } from 'lucide-react';
 
 type ButtonProps = {
-    icon?: 'home' | 'compass' | 'plus' | 'file-music' | 'user-round';  
+    icon?: 'home' | 'compass' | 'plus' | 'file-music' | 'user-round';
     label: string;
     handleClick?: () => void;  // Agregar handleClick
     children?: ReactNode;
