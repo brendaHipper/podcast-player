@@ -1,0 +1,30 @@
+
+.search-bar {
+    position: relative;
+  }
+  
+  .search-icon {
+    position: absolute;
+    left: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #474747; /* Color del ícono */
+  }
+  
+  input {
+    background: rgba(40, 40, 40, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    height: 45px;
+    padding-left: 40px; /* Espacio adicional para el ícono */
+    width: 45%;
+    color: #fff; /* Color del texto */
+    font-size: 20px;
+  }
+
+  input::placeholder {
+    color: #474747; /* Color del placeholder */
+  }
+  

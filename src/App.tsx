@@ -1,21 +1,42 @@
-// import './App.css'
-import Header from './components/Header.js';
-import Sidebar from './components/Sidebar.js';
-import Chip from './components/Chip.js';
-// import ListenAgain from './components/ListenAgain.js';
-// import QuickPicks from './components/QuickPicks.js';
-import MainContent from './components/MainContent.js';
+import { useState } from 'react';
+import Header from './components/Header/Header';
+import Sidebar from './components/Sidebar/Sidebar';
+import MainContent from './components/MainContent/MainContent';
+import PlaylistForm from './components/PlaylistForm/PlaylistForm';
+import PlayBar from './components/PlayBar/PlayBar';
+import './App.css';
 
+type Playlist = {
+  title: string;
+  description: string;
+  imageUrl: string;
+};
 
-export default function AlbumList() {
+export default function App() {
+  const [isCreatingPlaylist, setIsCreatingPlaylist] = useState(false);
+  const [playlists, setPlaylists] = useState<Playlist[]>([]);
+
+  const handleNewPlaylistClick = () => {
+    setIsCreatingPlaylist(true);
+  };
+
+  const handleAddPlaylist = (playlist: Playlist) => {
+    setPlaylists([...playlists, playlist]);
+    setIsCreatingPlaylist(false);
+  };
+
   return (
     <div className='podcast'>
       <Header />
-      <Sidebar/>
-      <Chip/>
-      <MainContent />
+      <Sidebar playlists={playlists} onNewPlaylistClick={handleNewPlaylistClick} />
+      <div className='main-content'>
+        {isCreatingPlaylist ? (
+          <PlaylistForm addPlaylist={handleAddPlaylist} />
+        ) : (
+          <MainContent />
+        )}
+      </div>
+      <PlayBar/>
     </div>
   );
 }
-
-

@@ -1,0 +1,34 @@
+/* Contenedor principal para imagen de Album y nombre playlist*/
+.album-song {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 12px;
+  width: 180px;
+  height: 180px;
+}
+
+
+.playlist-name  {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 4px;
+  width: 180px;
+  height: 42px;
+}
+
+.song-title {
+  height: 19px;
+  margin-top: 1px;
+  color: #FFFFFF; /* Asegurar que el color del texto sea blanco */
+}
+
+.artist-name {
+  height: 19px;
+  margin-top: -20px;
+  font-size: 15px; /* Ajustar tamaño de fuente */
+  color: #FFFFFF; /* Color gris para el nombre del artista */
+}
