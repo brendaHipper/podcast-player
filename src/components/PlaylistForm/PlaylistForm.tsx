@@ -1,7 +1,7 @@
 import './PlaylistForm.css'
-import AlbumItem from './AlbumItem';
+import AlbumItem from '../AlbumItem/AlbumItem';
 import { ChangeEvent, FormEvent, useState } from 'react';
-import Input from './Input';
+import Input from '../Input/Input';
 
 type PlaylistFormProps = {
   addPlaylist: (playlist: 

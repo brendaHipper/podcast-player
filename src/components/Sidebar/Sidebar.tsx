@@ -1,6 +1,6 @@
-import Button from './Button';
+import Button from '../Button/Button';
 import './Sidebar.css';
-import SongItem from './SongItem';
+import SongItem from '../SongItem/SongItem';
 // import { ChevronDown } from 'lucide-react';
 
 type SidebarProps = {

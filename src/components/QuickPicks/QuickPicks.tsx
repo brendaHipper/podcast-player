@@ -1,5 +1,5 @@
 // QuickPicks.tsx
-import SongItem from './SongItem';
+import SongItem from '../SongItem/SongItem';
 import './QuickPicks.css';
 
 const ALBUMS = [

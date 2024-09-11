@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import Header from './components/Header';
-import Sidebar from './components/Sidebar';
-import MainContent from './components/MainContent';
-import PlaylistForm from './components/PlaylistForm';
+import Header from './components/Header/Header';
+import Sidebar from './components/Sidebar/Sidebar';
+import MainContent from './components/MainContent/MainContent';
+import PlaylistForm from './components/PlaylistForm/PlaylistForm';
+import PlayBar from './components/PlayBar/PlayBar';
 import './App.css';
 
 type Playlist = {
@@ -35,6 +36,7 @@ export default function App() {
           <MainContent />
         )}
       </div>
+      <PlayBar/>
     </div>
   );
 }

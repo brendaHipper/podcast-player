@@ -1,7 +1,7 @@
-import IconYouTubeMusic from '../assets/youtube-music-1.svg'; 
-import SearchBar from './SearchBar';
-import ImgUserProfile from '../assets/yop.png';
-import './Header.css'
+import IconYouTubeMusic from '../../assets/youtube-music-1.svg'; 
+import SearchBar from '../SearchBar/SearchBar';
+import ImgUserProfile from '../../assets/yop.png';
+import '../Header/Header.css';
 import { AlignJustify, Cast } from 'lucide-react';
 
 const Header = () => (

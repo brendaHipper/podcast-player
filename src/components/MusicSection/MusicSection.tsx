@@ -1,11 +1,11 @@
 import './MusicSection.css';
 // import UserProfile from './UserProfile';
-import ImgUserProfile from '../assets/yop.png';
+import ImgUserProfile from '../../assets/yop.png'
 import { ReactNode } from 'react';
-import AlbumItem from './AlbumItem';
+import AlbumItem from '../AlbumItem/AlbumItem';
 import { CircleChevronLeft } from 'lucide-react';
 import { CircleChevronRight } from 'lucide-react';
-import QuickPicks from './QuickPicks';
+import QuickPicks from '../QuickPicks/QuickPicks';
 
 type PropsSectionMusic = {
   description?: string;
