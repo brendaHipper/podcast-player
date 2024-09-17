@@ -1,0 +1,36 @@
+.button-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    gap: 10px;
+    background-color: #282828;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-label {
+    text-align: left;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.button-description {
+    text-align: left;
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
+.button-container:hover {
+    background-color: #383838;
+}
+
+.icon {
+    color: #ffffff;
+}

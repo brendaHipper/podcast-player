@@ -1,0 +1,103 @@
+/* Contenedor principal de Music Section -> clase music-container */
+.music-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 24px;
+  background-color: #0C090B;
+  width: 1112px;
+  height: 329px;
+  margin-bottom: 45px;
+  margin-top: 20px;
+}
+
+/* Contenedor principal para categoria, avatar (img de perfil) y flechas */
+.category-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 27px;
+  width: 1112px;
+  height: 50px;
+  background-color: #0C090B;
+}
+
+.category-title{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 203px;
+  height: 50px;
+}
+
+.user-profile-icon img{
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+
+.description-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 4px;
+  width: 143px;
+  height: 50px;
+  color: #FFFFFF;
+}
+
+p.tag-des {
+  width: 300px;
+  height: 1px;
+  /* font-family: 'Inter'; */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  margin-top: 10px;
+}
+
+.tag-title {
+  width: 300px;
+  height: 15px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  position: absolute;
+  padding-top: 8px;
+}
+
+.arrows {
+  display: flex;
+  gap: 8px;
+  width: 88px;
+  height: 40px;
+}
+
+/* Contenedor principal para la lista de Albums */
+.albums-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 36px;
+  width: 1112px;
+  height: 255px;
+}
