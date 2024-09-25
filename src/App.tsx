@@ -3,7 +3,7 @@ import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 import MainContent from './components/MainContent/MainContent';
 import PlaylistForm from './components/PlaylistForm/PlaylistForm';
-import PlayBar from './components/PlayBar/PlayBar';
+import PlaybackBar from './components/PlaybackBar/PlaybackBar';
 import './App.css';
 
 type Playlist = {
@@ -16,11 +16,11 @@ export default function App() {
   const [isCreatingPlaylist, setIsCreatingPlaylist] = useState(false);
   const [playlists, setPlaylists] = useState<Playlist[]>([]);
 
-  const handleNewPlaylistClick = () => {
+  function handleNewPlaylistClick() {
     setIsCreatingPlaylist(true);
   };
 
-  const handleAddPlaylist = (playlist: Playlist) => {
+  function handleAddPlaylist(playlist: Playlist) {
     setPlaylists([...playlists, playlist]);
     setIsCreatingPlaylist(false);
   };
@@ -36,7 +36,7 @@ export default function App() {
           <MainContent />
         )}
       </div>
-      <PlayBar/>
+      <PlaybackBar/>
     </div>
   );
 }

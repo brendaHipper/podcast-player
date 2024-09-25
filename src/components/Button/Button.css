@@ -28,7 +28,7 @@
 }
 
 .button-container:hover {
-    background-color: #383838;
+    background: none; /* Quitar el hover por defecto */
 }
 
 .icon {

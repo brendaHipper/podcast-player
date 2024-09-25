@@ -1,7 +1,6 @@
 import Button from '../Button/Button';
 import './Sidebar.css';
 import SongItem from '../SongItem/SongItem';
-// import { ChevronDown } from 'lucide-react';
 
 type SidebarProps = {
   playlists: Array<{ title: string; description: string; imageUrl: string }>;
@@ -25,7 +24,7 @@ function Sidebar({ playlists, onNewPlaylistClick }: SidebarProps) {
             <SongItem
               imgSrc={playlist.imageUrl}
               title={playlist.title}
-              artist={playlist.description}
+              description={playlist.description}
             />
           </div>
         ))}

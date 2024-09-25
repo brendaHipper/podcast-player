@@ -1,5 +1,5 @@
 /* Contenedor principal para imagen de Album y nombre playlist*/
-.album-song {
+.album-song-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -7,6 +7,47 @@
   gap: 12px;
   width: 180px;
   height: 180px;
+  position: relative;
+}
+
+.album-image {
+  width: 100%;   /* Con width la imagen tomará el tamaño del contenedor */
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Efecto de oscurecimiento */
+.album-image:hover {
+  opacity: 0.15;
+}
+
+/* Contenedor del botón centrado */
+.album-button-play {
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  width: 15%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; /* para traer el bot'on de play por encima de la imagen*/
+}
+
+.album-button-play  .button-container {
+  background: rgba(0, 0, 0, 0.600); /* Quitar el fondo por defecto */
+  opacity: 80%;
+  border-radius: 50%;
+  border: none; /* Quitar borde por defecto */
+  cursor: pointer; /* Asegurar que sea clikeable */
+}
+
+/* Opacidad para la capa sobre la imagen del album */ 
+.album-image:hover .album-button-play {
+  opacity: 7;
 }
 
 
@@ -26,7 +67,7 @@
   color: #FFFFFF; /* Asegurar que el color del texto sea blanco */
 }
 
-.artist-name {
+.song-description {
   height: 19px;
   margin-top: -20px;
   font-size: 15px; /* Ajustar tamaño de fuente */

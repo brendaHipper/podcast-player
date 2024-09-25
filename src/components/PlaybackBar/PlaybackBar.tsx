@@ -1,9 +1,9 @@
-import './PlayBar.css';
+import './PlaybackBar.css';
 import SongItem from '../SongItem/SongItem';
 import Button from '../Button/Button';
 
 const ALBUMS = [
-    { id: 1, imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9L_JofsqtyNhqQ2x0W4z7nMi3KfoPLgD1cQ&s.jpg', title: 'Listen Again', artist: 'Alabama Shakes - The dsll dsldk • 37K views • 603 likes' },
+    { id: 1, imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9L_JofsqtyNhqQ2x0W4z7nMi3KfoPLgD1cQ&s.jpg', title: 'Listen Again', description: 'Alabama Shakes - The dsll dsldk • 37K views • 603 likes' },
   ];
 
 function PlayBar() {
@@ -29,7 +29,7 @@ function PlayBar() {
                             key={album.id}
                             imgSrc={album.imgSrc}
                             title={album.title}
-                            artist={album.artist}
+                            description={album.description}
                         />
                     ))}
                     <div className='icons-likes'>
