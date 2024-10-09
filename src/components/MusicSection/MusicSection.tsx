@@ -1,56 +1,20 @@
 import './MusicSection.css';
-// import UserProfile from './UserProfile';
 import ImgUserProfile from '../../assets/yop.png'
 import { ReactNode } from 'react';
 import AlbumItem from '../AlbumItem/AlbumItem';
 import { CircleChevronLeft } from 'lucide-react';
 import { CircleChevronRight } from 'lucide-react';
 import QuickPicks from '../QuickPicks/QuickPicks';
+import SongItem from '../SongItem/SongItem';
+// Importo la Custom Hooks de Fetch de Datos y seteo en una constante la url de la API a utilizar
+import useFetchData from "../../hooks/useFetchData";
+const API_URL = 'https://api.audioboom.com/audio_clips'; // URL de la API
 
 type PropsSectionMusic = {
   description?: string;
   title: string;
   children: ReactNode;
 };
-
-const albums = [
-  {
-    id: '1',
-    imgSrc: 'https://www.rockaxis.com/img/newsList/3752458.jpg',
-    title: 'Playlist Name 1',
-    artist: 'Artist Name 1 • 68 songs',
-  },
-  {
-    id: '2',
-    imgSrc: 'https://i0.wp.com/www.scienceofnoise.net/wp-content/uploads/2022/03/RHCP_Unlimited-Love.jpg',
-    title: 'Playlist Name 2',
-    artist: 'Artist Name 2 • 77 songs',
-  },
-  {
-    id: '3',
-    imgSrc: 'https://i.pinimg.com/236x/2e/ec/fe/2eecfe7fdf1246c49951730c6f91af35.jpg',
-    title: 'Playlist Name 3',
-    artist: 'Artist Name 3 • 40 songs',
-  },
-  {
-    id: '4',
-    imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9L_JofsqtyNhqQ2x0W4z7nMi3KfoPLgD1cQ&s',
-    title: 'Playlist Name 3',
-    artist: 'Artist Name 4 • 80 songs',
-  },
-  {
-    id: '5',
-    imgSrc: 'https://akamai.sscdn.co/uploadfile/letras/albuns/9/2/2/d/501661465817218.jpg',
-    title: 'Playlist Name 3',
-    artist: 'Artist Name 5 • 72 songs',
-  },
-  // {
-  //   id: '6',
-  //   imgSrc: 'https://i.ebayimg.com/thumbs/images/g/prEAAOSw5m9mt9Th/s-l1200.jpg',
-  //   title: 'Playlist Name 3',
-  //   artist: 'Artist Name 5 • 83 songs',
-  // },
-];
 
 function MusicContainer({ description, title, children }: PropsSectionMusic) {
   return (
@@ -77,43 +41,75 @@ function MusicContainer({ description, title, children }: PropsSectionMusic) {
   );
 }
 
+// Componente a exportar
 function MusicSection() {
+  // uso de la Custom Hooks para el Fetch de Datos
+  const { data: audio_clips, isLoading, error } = useFetchData(API_URL);
+
+  if (isLoading) {
+    return <p>Cargando ando....</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
+  // Id de los canales a filtrar
+  const channelId = [5078295,5682860,5030055,5064687,5008649,4590638];
+
+  const filterAudios = audio_clips.filter(audio_info => 
+    channelId.includes(audio_info.channel.id) &&
+     audio_info.title && audio_info.channel.urls?.logo_image?.original
+  );
+
   return (
     <div>
       <MusicContainer description="Brenda Hip" title='Listen Again'>
-        {albums.map((album) => (
+        {filterAudios.slice(0, 5).map(audio_info => (
           <AlbumItem 
-            key={album.id}
-            imgSrc={album.imgSrc}
-            title={album.title}
-            artist={album.artist}
+            key={audio_info.channel.id}
+            imgSrc={audio_info.channel.urls.logo_image.original}
+            title={audio_info.title}
+            description={audio_info.description || 'Soy una Descripción válida y aquí estoy'}
+            audio={audio_info.urls.high_mp3}
             width={300}
             height={180}
           />
         ))}
       </MusicContainer>
       <MusicContainer description="START RADIO FROM A SONG" title='Quick Picks'>
-        <QuickPicks/>
+        <QuickPicks>
+        {filterAudios.slice(0, 5).map(audio_info => (
+          <SongItem
+              imgSrc={audio_info.channel.urls.logo_image.original}
+              title={audio_info.title}
+              description={audio_info.description || 'Soy una Descripción válida y aquí estoy'}
+              audio={audio_info.urls.high_mp3}
+          />
+        ))}
+        </QuickPicks>
       </MusicContainer>
       <MusicContainer title='Recommended albums'>
-        {albums.map((album) => (
+        {filterAudios.slice(0, 5).map(audio_info => (
           <AlbumItem 
-            key={album.id}
-            imgSrc={album.imgSrc}
-            title={album.title}
-            artist={album.artist}
+            key={audio_info.id}
+            imgSrc={audio_info.channel.urls.logo_image.original}
+            title={audio_info.title}
+            description={audio_info.description || 'Soy una Descripción válida y aquí estoy'}
+            audio={audio_info.urls.high_mp3}
             width={200}
             height={200}
           />
         ))}
       </MusicContainer>
       <MusicContainer description="SIMILAR TO" title='Akon'>
-        {albums.map((album) => (
+        {filterAudios.slice(0, 5).map(audio_info => (
           <AlbumItem 
-            key={album.id}
-            imgSrc={album.imgSrc}
-            title={album.title}
-            artist={album.artist}
+            key={audio_info.id}
+            imgSrc={audio_info.channel.urls.logo_image.original}
+            title={audio_info.title}
+            description={audio_info.description || 'Soy una Descripción válida y aquí estoy'}
+            audio={audio_info.urls.high_mp3}
             width={200}
             height={200}
             borderRadius={50}

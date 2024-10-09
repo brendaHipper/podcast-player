@@ -16,12 +16,12 @@ function PlaylistForm({ addPlaylist }: PlaylistFormProps) {
   const [description, setDescription] = useState('');
   const [imageUrl, setImageUrl] = useState('');
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     addPlaylist({ title, description, imageUrl });
   };
 
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     if (name === 'title') setTitle(value);
     if (name === 'description') setDescription(value);
@@ -44,8 +44,9 @@ function PlaylistForm({ addPlaylist }: PlaylistFormProps) {
         <AlbumItem 
               imgSrc={imageUrl}
               title={title}
-              artist={description}
-              width={180}
+              description={description}
+              width={200}
+              height={200}
           />
       </div>
     </div>

@@ -13,6 +13,7 @@
     bottom: 0%;
     background: #282828;
     mix-blend-mode: normal;
+    z-index: 4; /* Para que el Playbar quede por encima del Main Content */
 }
 
 .pb-inner-container {

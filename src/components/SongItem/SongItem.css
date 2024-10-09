@@ -9,13 +9,41 @@
     /* width: 300px; */
     width: 100%;
     height: 50px;
+    position: relative;
   }
+
+  /* Estilos para el botón de Play */
+  .album-button-play-song {
+    position: absolute;
+    /* márgenes para centrar el botón de Play */
+    top: 40%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* para traer el bot'on de play por encima de la imagen*/
+  }
+
+  .album-button-play-song  .button-container {
+    background: none; /* Quitar el fondo por defecto */
+    border: none; /* Quitar borde por defecto */
+    cursor: pointer; /* Asegurar que sea clikeable */
+  }
+  
+  /* Opacidad para la capa sobre la imagen del album */ 
+  .album-image:hover .album-button-play {
+    opacity: 7;
+  }
+    /* Estilos para el botón de Play */
   
   .song-image {
     width: 48px;
     height: 48px;
     border-radius: 4px;
     margin-right: 12px;
+    position: relative;
+    z-index: 1;
   }
   
   .song-item-info {
@@ -31,7 +59,7 @@
     margin: 0;
   }
   
-  .song-item-artist {
+  .song-item-description {
     font-size: 12px;
     font-weight: large;
     color: #CCC;
