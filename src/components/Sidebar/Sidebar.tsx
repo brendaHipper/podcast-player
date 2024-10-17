@@ -3,7 +3,7 @@ import './Sidebar.css';
 import AlbumItem from '../AlbumItem/AlbumItem';
 
 type SidebarProps = {
-  playlists: Array<{ title: string; description: string; imageUrl: string; audio: string }>;
+  playlists: Array<{ title: string; description: string; imageUrl: string; audio?: string }>;
   onNewPlaylistClick: () => void;
 };
 
@@ -27,7 +27,7 @@ function Sidebar({ playlists, onNewPlaylistClick }: SidebarProps) {
                 imgSrc={playlist.imageUrl}
                 title={playlist.title}
                 description={playlist.description || 'Soy una Descripción válida y aquí estoy'}
-                audio={playlist.audio}
+                audio={playlist.audio ?? ""}
                 width={48}
                 height={48}
             />
