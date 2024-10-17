@@ -1,7 +1,7 @@
 /* Para el contenedor quick picks aplico Grid*/
 .quick-picks-container {
   display: grid;
-  grid-template-columns: repeat(4, 28%); /* Ajusta según el diseño */
+  grid-template-columns: repeat(4, 130%); /* Ajusta según el diseño */
   gap: 8px;
 }
 

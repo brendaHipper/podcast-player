@@ -85,12 +85,20 @@ p.tag-des {
   padding-top: 8px;
 }
 
+/*VER LOS ESTILOS QUE AL REUTILIZAR EL COMPONENTE, DEBO MODIFICARLOS*/
 .arrows {
   display: flex;
-  gap: 8px;
+  gap: 1px;
   width: 88px;
   height: 40px;
 }
+
+.arrows .arrowPrev {
+  background: none; /* Quitar el hover por defecto */
+  background-color: transparent;
+  border: none;
+}
+/*VER LOS ESTILOS QUE AL REUTILIZAR EL COMPONENTE, DEBO MODIFICARLOS*/
 
 /* Contenedor principal para la lista de Albums */
 .albums-container {

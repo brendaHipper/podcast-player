@@ -73,7 +73,13 @@
     padding: 0px;
     gap: 4px;
     width: 198px;
-    height: 42px;
+    height: 42px;   
+}
+
+/* Estilos para el título y la descripción de la Card */
+.autoplaylist .playlist-info {
+    margin-top: -130%;
+    margin-left: 130%;
 }
 
 .autoplaylist-title {

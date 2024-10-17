@@ -51,7 +51,7 @@
 }
 
 
-.playlist-name  {
+.playlist-info  {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -73,3 +73,44 @@
   font-size: 15px; /* Ajustar tamaño de fuente */
   color: #FFFFFF; /* Color gris para el nombre del artista */
 }
+
+/* <<< ESTILOS QUE AGREGO PARA APLICAR EN QUICK PICKS >>>>*/
+
+/* Estilos para el componente AlbumItem dentro de QuickPicks */
+.styleQuickPicks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  padding-bottom: 10px;
+  gap: 2px;
+  width: 100%;
+  height: 50px;
+  position: relative;
+}
+
+/* el contenedor de información contiene a title y a description, aplicado los márgenes para que estos se coloque de lado a la imagen */
+.styleQuickPicks .playlist-info {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: -130%;
+  margin-left: 130%;
+}
+
+.styleQuickPicks .song-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.styleQuickPicks .song-description {
+  font-size: 12px;
+  font-weight: large;
+  color: #CCC;
+  margin: 0;
+}
+
+
