@@ -1,11 +1,13 @@
-
-import { Search } from 'lucide-react';
+// Reutilizo mi componente IconButton aquí
+import IconButton from '../IconButton/IconButton';
 import './SearchBar.css';
 
 const SearchBar = () => (
   <div className="search-bar">
-    <Search className="search-icon" size={23} />
-    <input type="text" placeholder=" Search..." />
+    <div className="search-icon">
+      <IconButton as="search" iconColor='#fff' iconSize={23}/>
+    </div>
+    <input type="text" placeholder="    Search..." />
   </div>
 );
 

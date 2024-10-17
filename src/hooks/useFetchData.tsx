@@ -17,6 +17,7 @@ type AudioClip = {
   };
 };
 
+
 export default function useFetchData(url: string) {
   const[data, setData] = useState<AudioClip[]>([]);
   const[isLoading, setIsLoading] = useState(false);
@@ -25,13 +26,15 @@ export default function useFetchData(url: string) {
   useEffect(() => {
     setIsLoading(true);
     fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data.body.audio_clips); // donde accede
-      })
-      .catch(() => {
-        setError('Hubo un error');
-      })
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    setData(data.body.audio_clips);
+  })
+  .catch(() => {
+    setError('Hubo un error');
+  })
       .finally(() => {
         setIsLoading(false);
       });

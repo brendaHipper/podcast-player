@@ -1,52 +1,62 @@
 import './PlaybackBar.css';
-import SongItem from '../SongItem/SongItem';
-import Button from '../Button/Button';
+import { PlaySongContext } from '../../context/PlaySongContext';
+import { useContext } from 'react';
+import IconButton from '../IconButton/IconButton';
 
-const ALBUMS = [
-    { id: 1, imgSrc: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9L_JofsqtyNhqQ2x0W4z7nMi3KfoPLgD1cQ&s.jpg', title: 'Listen Again', description: 'Alabama Shakes - The dsll dsldk • 37K views • 603 likes' },
-  ];
+export default function PlaybackBar() {
+  const songContext = useContext(PlaySongContext);
 
-function PlayBar() {
-    return (
-        <article className='play-bar-container'>
-            <div className='pb-inner-container'>
-                <div className='play-arrow'>
-                    <Button icon="skipback" iconSize={20} iconFill="#fff"/>
-                    <div className='play-button'>
-                        <Button
-                            icon="play"
-                            iconFill="#fff"
-                            strokeWidth={1}
-                            iconSize={35}
-                        />
-                    </div>
-                    <Button icon="skipforward" iconSize={20} iconFill="#fff"/>
-                    <p className='time'>0:10 / 0:41</p>
-                </div>
-                <div className='playing-album-music'>
-                    {ALBUMS.map((album) => (
-                        <SongItem
-                            key={album.id}
-                            imgSrc={album.imgSrc}
-                            title={album.title}
-                            description={album.description}
-                        />
-                    ))}
-                    <div className='icons-likes'>
-                        <Button icon="thumbsdown" iconSize={20} strokeWidth={1}/>
-                        <Button icon="thumbsup" iconSize={20} strokeWidth={1}/>
-                        <Button icon="ellipsisvertical" iconSize={20} strokeWidth={1}/>
-                    </div>
-                </div>
-                <div className='other-controls'>
-                    <Button icon="volume" iconColor='#949494' iconSize={28} strokeWidth={1}/>
-                    <Button icon="repeat" iconColor='#949494' iconSize={28} strokeWidth={1}/>
-                    <Button icon="shuffle" iconColor='#949494' iconSize={28} strokeWidth={1}/>
-                    <Button icon="chevrondown" iconFill="#fff" iconSize={28} strokeWidth={1}/>
-                </div>
+  if (!songContext) {
+    return null;
+  }
+
+  const { imgSrc, title, description, isPlaying, playPauseAudio, audioSrc } = songContext;
+
+  const handlePlayPause = () => {
+    // Al hacer clic en el botón de play/pause, alterna el estado de la canción actual
+    playPauseAudio(audioSrc);
+  };
+
+  return (
+    <article className="play-bar-container">
+      <div className="slider-playbar">
+        <input className="slider-playbar" type="range" min="0" max="0" />
+      </div>
+      <div className="pb-inner-container">
+        <div className="play-arrow">
+          <IconButton as="skipback" iconSize={20} iconFill="#fff" />
+          <div className="play-button">
+            <IconButton
+              iconFill="#fff"
+              iconSize={40}
+              as={isPlaying ? 'pause' : 'play'}
+              handleClick={handlePlayPause}
+            />
+          </div>
+          <IconButton as="skipforward" iconSize={20} iconFill="#fff" />
+          <p className="time">0:10 / 0:41</p>
+        </div>
+        <div className="playing-album-music">
+          <div className="album-info">
+            <img src={imgSrc} alt={title} width={48} height={48} />
+            <div>
+              <h4>{title.slice(0, 35) + '...'}</h4>
+              <p>{description ? description.slice(0, 40) + '...' : 'Soy una Descripción válida y aquí estoy'}</p>
             </div>
-        </article>
-    );
+          </div>
+          <div className="icons-likes">
+            <IconButton as="thumbsdown" iconSize={20} strokeWidth={1} />
+            <IconButton as="thumbsup" iconSize={20} strokeWidth={1} />
+            <IconButton as="ellipsisvertical" iconSize={20} strokeWidth={1} />
+          </div>
+        </div>
+        <div className="other-controls">
+          <IconButton as="volume" iconColor="#949494" iconSize={25} strokeWidth={1} />
+          <IconButton as="repeat" iconColor="#949494" iconSize={25} strokeWidth={1} />
+          <IconButton as="shuffle" iconColor="#949494" iconSize={25} strokeWidth={1} />
+          <IconButton as="chevrondown" iconFill="#fff" iconSize={25} />
+        </div>
+      </div>
+    </article>
+  );
 }
-
-export default PlayBar;

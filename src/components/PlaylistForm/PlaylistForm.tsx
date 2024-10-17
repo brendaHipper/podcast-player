@@ -47,6 +47,7 @@ function PlaylistForm({ addPlaylist }: PlaylistFormProps) {
               description={description}
               width={200}
               height={200}
+              audio={""} // agregado, pero luego modificar
           />
       </div>
     </div>

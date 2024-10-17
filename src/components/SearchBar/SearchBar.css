@@ -8,7 +8,8 @@
     left: 100px;
     top: 50%;
     transform: translateY(-50%);
-    color: #474747; /* Color del ícono */
+    /* Arregar luego los estilos, porque la caja ahora contiene un botón para la lupa */
+    background-color: transparent; /* Color del ícono */
   }
   
   input {
