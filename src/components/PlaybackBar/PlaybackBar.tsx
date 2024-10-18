@@ -10,17 +10,36 @@ export default function PlaybackBar() {
     return null;
   }
 
-  const { imgSrc, title, description, isPlaying, playPauseAudio, audioSrc } = songContext;
+  const { imgSrc, title, description, isPlaying, playPauseAudio, audioSrc, duration, updateCurrentTime,
+    isPlaybackBarVisible, setPlaybackBarVisible } = songContext;
 
   const handlePlayPause = () => {
-    // Al hacer clic en el botón de play/pause, alterna el estado de la canción actual
+    // Al hacer clic en el botón de play/pause, alterna el estado del audio actual
     playPauseAudio(audioSrc);
+  };
+
+  const handleDurationOfTime = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newTime = parseFloat(event.target.value);
+    updateCurrentTime(newTime); // Actualiza el tiempo en el contexto
+  };
+
+  if (!isPlaybackBarVisible) return null;
+
+  // Oculta la Barra del Bar
+  const handleCloseBar = () => {
+    setPlaybackBarVisible(false);
   };
 
   return (
     <article className="play-bar-container">
       <div className="slider-playbar">
-        <input className="slider-playbar" type="range" min="0" max="0" />
+        <input 
+          className="slider-playbar" 
+          type="range" 
+          min="0" 
+          max={duration.toString()} 
+          onChange={handleDurationOfTime}  // Actualiza el tiempo
+        />
       </div>
       <div className="pb-inner-container">
         <div className="play-arrow">
@@ -55,6 +74,8 @@ export default function PlaybackBar() {
           <IconButton as="repeat" iconColor="#949494" iconSize={25} strokeWidth={1} />
           <IconButton as="shuffle" iconColor="#949494" iconSize={25} strokeWidth={1} />
           <IconButton as="chevrondown" iconFill="#fff" iconSize={25} />
+          {/* Botón para cerrar la barra de reproducción */}
+          <IconButton as="close" iconFill="#fff" iconSize={25} handleClick={handleCloseBar} />
         </div>
       </div>
     </article>

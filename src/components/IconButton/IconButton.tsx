@@ -3,7 +3,7 @@ import { ReactNode } from 'react';
 import './IconButton.css';
 import { House, Compass, Plus, FileMusic, UserRound, SkipBack, SkipForward, Play, Pause,
     ThumbsUp, ThumbsDown, EllipsisVertical, Volume2, Repeat, Shuffle , ChevronDown,
-    Search, CircleChevronLeft, CircleChevronRight } from 'lucide-react';
+    Search, CircleChevronLeft, CircleChevronRight, X } from 'lucide-react';
 
     type IconButtonProps = {
         as: keyof typeof LIST_ICONS; // acá indico que as va tener un tipo LIST_ICONS
@@ -36,7 +36,8 @@ import { House, Compass, Plus, FileMusic, UserRound, SkipBack, SkipForward, Play
             chevrondown: ChevronDown,
             search: Search,
             arrowPrev: CircleChevronLeft,
-            arrowNext: CircleChevronRight
+            arrowNext: CircleChevronRight,
+            close: X,
         };
     
     

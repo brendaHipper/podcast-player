@@ -20,13 +20,15 @@ export default function AlbumItem({ imgSrc, title, description, audio, width = 1
     if (songContext) {
       const isCurrentSong = songContext.audioSrc === audio;
 
-      // Alterna entre play y pause
+      // Alterna entre play y pause cuando el audio esté seleccionado
       if (isCurrentSong) {
         songContext.playPauseAudio(audio);
       } else {
         // Actualiza el contexto y reproduce la nueva canción
         songContext.changeSongInfo(imgSrc, title, description, audio);
-        songContext.playPauseAudio(audio);
+        setTimeout(() => {
+          songContext.playPauseAudio(audio); // Reproduce el nuevo audio después de actualizar la información
+        }, 0);
       }
     }
   };
@@ -35,7 +37,7 @@ export default function AlbumItem({ imgSrc, title, description, audio, width = 1
 
   return (
     <div className="album-song-container" style={{ width, height }}>
-      <div className="album-button-play">
+      <div className="album-button-play" onClick={handlePlay}>
         <IconButton
           iconFill="#fff"
           iconSize={50}

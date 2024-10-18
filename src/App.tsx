@@ -27,7 +27,7 @@ export default function App() {
     setPlaylists([...playlists, playlist]);
     setIsCreatingPlaylist(false);
   };
-
+  
   return (
     <PlaySongProvider>
       <div className='podcast'>
